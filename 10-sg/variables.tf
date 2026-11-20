@@ -6,13 +6,13 @@ variable "environment"{
     default = "dev"
 }
 
-variable "mongodb_sg_name" {
-    default = "mongodb"
-}
+# variable "mongodb_sg_name" {
+#     default = "mongodb"
+# }
 
-variable "redis_sg_name" {
-    default = "redis"
-}
+# variable "redis_sg_name" {
+#     default = "redis"
+# }
 
 variable "sg_names" {
     default = [

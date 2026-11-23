@@ -11,5 +11,6 @@ locals {
     Terraform = "true"
     Name = "${var.project}-${var.environment}-mongodb"
   }
+  account_id = data.aws_caller_identity.current.account_id
 
 }

@@ -7,7 +7,7 @@ terraform {
   }
   backend "s3" {
     bucket       = "raj-remote-tf-state-dev"
-    key          = "databases.tfstate"
+    key          = "databases-rules.tfstate"
     region       = "us-east-1"
     encrypt      = true
     use_lockfile = true

@@ -110,7 +110,7 @@ resource "aws_lb_target_group" "catalogue" {
 
 resource "aws_autoscaling_group" "catalogue" {
   name                = "${local.common_name}-catalogue"
-  vpc_zone_identifier = [local.private_subnet_ids] # Replace with your Subnet IDs
+  vpc_zone_identifier = local.private_subnet_ids # Replace with your Subnet IDs
   min_size            = 1 # All the time, it should maintain atleast 1
   max_size            = 4 # Autosccaling can create max upto 4 instances
   desired_capacity    = 2 # Start with 2 instances  

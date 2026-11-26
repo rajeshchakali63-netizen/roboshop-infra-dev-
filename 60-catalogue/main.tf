@@ -114,7 +114,8 @@ resource "aws_autoscaling_group" "catalogue" {
   min_size            = 1 # All the time, it should maintain atleast 1
   max_size            = 4 # Autosccaling can create max upto 4 instances
   desired_capacity    = 2 # Start with 2 instances  
-  health_check_type   = "EC2" # Change to "ELB" if attaching a Load Balancer
+  health_check_type   = "ELB" # Change to "ELB" if attaching a Load Balancer
+  force_delete              = true
 
   launch_template {
     id      = aws_launch_template.catalogue.id

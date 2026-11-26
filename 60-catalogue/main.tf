@@ -89,7 +89,6 @@ resource "aws_launch_template" "catalogue" {
 
 resource "aws_lb_target_group" "catalogue" {
   name        = "${local.common_name}-catalogue"
-  target_type = "alb"
   port        = 8080
   protocol    = "HTTP"
   vpc_id      = local.vpc_id

@@ -91,7 +91,7 @@ resource "aws_lb_target_group" "catalogue" {
   name        = "${local.common_name}-catalogue"
   target_type = "alb"
   port        = 8080
-  protocol    = "TCP"
+  protocol    = "HTTP"
   vpc_id      = local.vpc_id
   deregistration_delay = 10
 
@@ -113,9 +113,10 @@ resource "aws_autoscaling_group" "catalogue" {
   vpc_zone_identifier = local.private_subnet_ids # Replace with your Subnet IDs
   min_size            = 1 # All the time, it should maintain atleast 1
   max_size            = 4 # Autosccaling can create max upto 4 instances
+  health_check_grace_period = 120 # 120sec, autoscaling will not do the health checks
   desired_capacity    = 2 # Start with 2 instances  
   health_check_type   = "ELB" # Change to "ELB" if attaching a Load Balancer
-  force_delete              = true
+  force_delete        = true
 
   launch_template {
     id      = aws_launch_template.catalogue.id
